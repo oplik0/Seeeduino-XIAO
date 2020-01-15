@@ -41,6 +41,8 @@ The following figure is the pin map of Seeeduino XIAO:
 
 - **Step 5.** The raspberry pie is connected to a power supply.
 
+![](https://github.com/SeeedDocument/Seeeduino-XIAO/raw/master/img/connect.png)
+
 
 ### Software
 
