@@ -81,7 +81,7 @@ At this point, the chip enters Bootloader mode and the burn port appears again. 
 All pins on Seeeduino XIAO support interrupts, but two pins cannot be used at the same time: 5 pin and 7 pin. For more detail about Interrupt please check [here](https://github.com/Seeed-Studio/ArduinoCore-samd/blob/master/variants/XIAO_m0/variant.cpp).
 
 
-### Pin Reuse
+### Pin Multuiplexing
 
 We don't need to configure the pins ourselves, after using the associated pins, you can call a function directly.
 
