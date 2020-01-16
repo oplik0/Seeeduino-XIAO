@@ -211,7 +211,7 @@ Click on **File > Preference**, and fill Additional Boards Manager URLs with the
 Click **Tools-> Board-> Boards Manager...**, print  keyword "**Seeeduino XIAO**" in the searching blank. Here comes the "Seeed SAMD Boards". Install it.
 
 
-![](https://raw.githubusercontent.com/SeeedDocument/Seeeduino-XIAO/master/img/Seeeduino-XIAO-board.png)
+![](https://github.com/SeeedDocument/Seeeduino-XIAO/raw/master/img/XIAO-board.png)
 
 
 - **Step 4. Select your board and port** 
