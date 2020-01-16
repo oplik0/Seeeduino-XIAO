@@ -83,7 +83,7 @@ All pins on Seeeduino XIAO support interrupts, but two pins cannot be used at th
 
 ### Pin Multuiplexing
 
-We don't need to configure the pins ourselves, after using the associated pins, you can call a function directly.
+We don't need to configure the pins ourselves, after using the pins, you can call a function directly.
 
 - Use pin 6 as the digital pin:
 
