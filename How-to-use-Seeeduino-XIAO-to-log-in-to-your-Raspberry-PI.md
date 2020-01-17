@@ -51,6 +51,9 @@ Find the config.txt file on the TF card where the Raspberry Pi official system i
 ```c
 enable_uart=1
 ```
+
+If you want to check more Raspberry Pi boot log you can remove "quiet" in cmdline.txt
+
 **Configuring Seeeduino XIAO**
 
 - **Step 1.** Open [Arduino IDE](https://www.arduino.cc/en/Main/Software) and add Seeeduino XIAO by following the link [here.](https://github.com/SeeedDocument/Seeeduino-XIAO)
