@@ -57,7 +57,7 @@ After saving, first open the serial port communication software on your PC and s
 
 
 
-```c
+```c++
 /*
    This example is used for USB to ttl.
    update file Arduino15\packages\Seeeduino\hardware\samd\1.6.0\cores\arduino\USB\USBAPI.h
