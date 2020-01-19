@@ -15,19 +15,6 @@ Sometimes when we use Raspberry Pi, these situations can be very disturbing to u
 
 - Type-C cable x1
 
-### Hardware Overview
-
-The following figure is the pin map of Raspberry Pi:
-
-
-![](https://github.com/SeeedDocument/Seeeduino-XIAO/raw/master/img/Raspberry-PI-pinout.png)
-
-
-The following figure is the pin map of Seeeduino XIAO:
-
-
-![](https://raw.githubusercontent.com/SeeedDocument/Seeeduino-XIAO/master/img/Seeeduino-XIAO-pinout.jpg)
-
 
 **Hardware Connection**
 
@@ -41,7 +28,7 @@ The following figure is the pin map of Seeeduino XIAO:
 
 - **Step 5.** The raspberry pie is connected to a power supply.
 
-![](https://github.com/SeeedDocument/Seeeduino-XIAO/raw/master/img/connect.png)
+![](http://files.seeedstudio.com/products/102010328/img/pin-with-marks.png)
 
 
 ### Software
@@ -51,9 +38,6 @@ Find the config.txt file on the TF card where the Raspberry Pi official system i
 ```c
 enable_uart=1
 ```
-
-If you want to check more Raspberry Pi boot log you can remove "quiet" in cmdline.txt
-
 **Configuring Seeeduino XIAO**
 
 - **Step 1.** Open [Arduino IDE](https://www.arduino.cc/en/Main/Software) and add Seeeduino XIAO by following the link [here.](https://github.com/SeeedDocument/Seeeduino-XIAO)
@@ -61,28 +45,6 @@ If you want to check more Raspberry Pi boot log you can remove "quiet" in cmdlin
 - **Step 2.** Copy the following code to Arduino IDE and upload the code into Seeeduino XIAO.
 
 ```c++
-/*
-   This example is used for USB to ttl.
-   update file Arduino15\packages\Seeeduino\hardware\samd\1.6.0\cores\arduino\USB\USBAPI.h
-
-    class Serial_ : public Stream
-    {
-    public:
-      ......
-      ......
-      //add
-      uint32_t getBaud(void);
-      ......
-    }
-
-   update file Arduino15\packages\Seeeduino\hardware\samd\1.6.0\cores\arduino\USB\CDC.cpp
-   //add
-    uint32_t Serial_::getBaud(void)
-    {
-     return _usbLineInfo.dwDTERate;
-    }
-*/
-
 uint32_t baud;
 uint32_t old_baud;
 void setup() {
@@ -123,7 +85,22 @@ void loop() {
 
 - **Step 2.** Set the serial port baud rate to 115200 ( This is the default serial port baud rate. It can be communicated correctly if it is consistent with the serial port baud rate of the Raspberry Pi.)
 
+<p align="center">
+  <img src="http://files.seeedstudio.com/products/102010328/img/Putty%20config.png">
+</p>
+
 - **Step 3.** Then you will see the startup information in the terminal window.
+
+<p align="center">
+  <img src="http://files.seeedstudio.com/products/102010328/img/Terminal.png">
+</p>
+
+Now you have access to Raspberry Pi through Seeeduino XIAO!
+
+<p align="center">
+  <img src="http://files.seeedstudio.com/products/102010328/img/new%20pins.gif">
+</p>
+
 
 
 
