@@ -53,13 +53,24 @@ Seeeduino XIAO has 14 GPIO PINs, which can be used for 11 digital interfaces, 11
 
 ![](https://github.com/SeeedDocument/Seeeduino-XIAO/raw/master/img/Seeeduino%20XIAO%20pinout%202.png)
 
+![](https://github.com/SeeedDocument/Seeeduino-XIAO/raw/master/img/regulator_to_3.3v.png)
+
+
 
 !!!Note
 
-    1.The MCU of this design is powered by 3.3v, please pay attention not to introduce the IO level of 5V into the IO interface of the system, otherwise the chip may be damaged;
-    2.Please pay attention to use, do not lift the shield cover.
+    For general I/O pins:
+    Working voltage of MCU is 3.3V . Voltage input connected to general I/O pins may cause chip damage if it' higher than 3.3V .
+
+    For power supply pins:
+    The built-in DC-DC converter circuit able to change 5V voltage into 3.3V allows to power the device with a 5V supply via VIN-PIN and 5V-PIN.
+
+    Please pay attention to use, do not lift the shield cover.
     
-    
+
+
+
+   
 ### Reset
 
 
@@ -140,7 +151,78 @@ void loop() {
   delay(sensorValue);
 }
 ```
+- Use pin 6 as the TX pin of UART(TX pin of UART is pin 7):
 
+```c
+
+void setup() {
+    Serial1.begin(115200);
+    while (!Serial);
+}
+
+void loop() {
+    Serial1.println("Hello,World");
+    delay(1000);
+}
+```
+
+- Use pin 5 as the SCL pin of IIC(SDA pin of IIC is pin 4):
+
+```c
+// Wire Master Writer
+// by Nicholas Zambetti <http://www.zambetti.com>
+
+// Demonstrates use of the Wire library
+// Writes data to an I2C/TWI slave device
+// Refer to the "Wire Slave Receiver" example for use with this
+
+// Created 29 March 2006
+
+// This example code is in the public domain.
+
+
+#include <Wire.h>
+
+void setup()
+{
+  Wire.begin(); // join i2c bus (address optional for master)
+}
+
+byte x = 0;
+
+void loop()
+{
+  Wire.beginTransmission(4); // transmit to device #4
+  Wire.write("x is ");        // sends five bytes
+  Wire.write(x);              // sends one byte  
+  Wire.endTransmission();    // stop transmitting
+  x++;
+  delay(500);
+}
+```
+
+- Use pin 8 as the SCK pin of SPI(MISO pin of SPI is pin 9,MOSI pin of SPI is pin 10):
+
+```c
+#include <SPI.h>
+const int SS = 7;
+void setup (void) {
+   digitalWrite(SS, HIGH); // disable Slave Select
+   SPI.begin ();
+   SPI.setClockDivider(SPI_CLOCK_DIV8);//divide the clock by 8
+}
+
+void loop (void) {
+   char c;
+   digitalWrite(SS, LOW); // enable Slave Select
+   // send test string
+   for (const char * p = "Hello, world!\r" ; c = *p; p++) {
+      SPI.transfer (c);
+   }
+   digitalWrite(SS, HIGH); // disable Slave Select
+   delay(2000);
+}
+```
 
 
 ## Getting Started
